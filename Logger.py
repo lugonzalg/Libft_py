@@ -8,8 +8,7 @@ class Logger:
     name: str
     path: str
 
-    def set_logger(self, name: str) -> None:
-        #name = "Client"
+    def set_logger(self) -> None:
         logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO").upper(),
                             format="%(asctime)s - %(levelname)s - %(name)s -  %(message)s",
                             datefmt="%m/%d/%Y %H:%M:%S",
