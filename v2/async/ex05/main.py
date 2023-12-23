@@ -8,7 +8,7 @@ CHUNK_SIZE = 100
 HOST = "127.0.0.1"
 PORT = 6667
 logger = Logger(name="chat")
-users = Dict[Tuple[str,int], asyncio.StreamWriter] = {}
+users : Dict[Tuple[str,int], asyncio.StreamWriter] = {}
 
 CHUNK_SIZE = 100
 
@@ -40,7 +40,7 @@ async def listen_client(reader: asyncio.StreamReader, writer: asyncio.StreamWrit
         writes = [writer(writer, data) for user, writer in users.items() if user != addr]
         asyncio.gather(*writes)
 
-    del users[addr]
+    #del users[addr]
 
 async def main() -> int:
 
